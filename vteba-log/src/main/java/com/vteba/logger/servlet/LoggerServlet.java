@@ -37,6 +37,7 @@ public class LoggerServlet extends HttpServlet {
 			LOGGER.info("info test2", "真是2");// 第二个参数打不出来
 			LOGGER.info("info test2, msg=[{}]", "真是2");// 这个才是对的，要使用占位符
 			LOGGER.error("错误了=[{}][{}]", "shi", "dangdang", e);
+			LOGGER.error("错误了=[{}][{}]看异常是否会占位", "shi", e);// 会将e作为一个参数放到占位符中
 		}
 		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
