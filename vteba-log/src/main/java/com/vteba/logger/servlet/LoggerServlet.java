@@ -27,6 +27,17 @@ public class LoggerServlet extends HttpServlet {
 		LOGGER.info("info的");
 		LOGGER.warn("warn的");
 		LOGGER.error("error的");
+		String a = null;
+		try {
+			if (a == null) {
+				throw new NullPointerException("控制正异常。");
+			}
+		} catch (Exception e) {
+			LOGGER.info("info测试", e);// Exception会打出来，普通参数不会，见下一个
+			LOGGER.info("info test2", "真是2");// 第二个参数打不出来
+			LOGGER.info("info test2, msg=[{}]", "真是2");// 这个才是对的，要使用占位符
+			LOGGER.error("错误了=[{}][{}]", "shi", "dangdang", e);
+		}
 		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 
