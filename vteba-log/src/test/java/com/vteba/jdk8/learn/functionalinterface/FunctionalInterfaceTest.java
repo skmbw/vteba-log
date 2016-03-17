@@ -11,11 +11,11 @@ public class FunctionalInterfaceTest {
 		Integer i = converter.convert("10");
 		assert i == 10;
 		
-		// 方法引用
+		// 方法引用实现接口
 		Converter<String, Long> longConverter = Long::valueOf;
 		System.out.println(longConverter.convert("223"));
 		
-		// 构造函数引用
+		// 构造函数引用实现接口
 		PersonFactory<Person> personFactory = Person::new;
 		Person person = personFactory.create("Peter", 23);
 		System.out.println(person.getName() + " : " + person.getAge());
