@@ -15,6 +15,10 @@ public class FunctionalInterfaceTest {
 		Converter<String, Long> longConverter = Long::valueOf;
 		System.out.println(longConverter.convert("223"));
 		
+		ConvertImpl convertImpl = new ConvertImpl();
+		Converter<String, Integer> convert = convertImpl::convert;
+		System.out.println(convert.convert("228"));
+		
 		// 构造函数引用实现接口
 		PersonFactory<Person> personFactory = Person::new;
 		Person person = personFactory.create("Peter", 23);
