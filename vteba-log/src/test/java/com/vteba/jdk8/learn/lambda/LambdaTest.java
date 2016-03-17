@@ -7,8 +7,10 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.vteba.jdk8.learn.functionalinterface.Converter;
+
 public class LambdaTest {
-	
+	// lambda对匿名内部类的 改进，语法糖
 	@Test
 	public void test() {
 		List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
@@ -40,4 +42,26 @@ public class LambdaTest {
 		System.out.println(names);
 	}
 	
+	// 测试lambda表单时的作用域.像匿名内部类一样，访问外层的final 变量
+	@Test
+	public void test2() {
+		final int num = 1;
+		Converter<Integer, String> stringConverter =
+		        (from) -> String.valueOf(from + num);
+		String i = stringConverter.convert(2);     // 3
+		System.out.println(i);
+	}
+	
+	// 测试lambda表单时的作用域.像匿名内部类一样，访问外层的final 变量
+	// 外层变量的final修饰符可以去掉，隐含是final的，即在下面不能对num再赋值
+	@Test
+	public void test3() {
+		int num = 1;
+		Converter<Integer, String> stringConverter =
+		        (from) -> String.valueOf(from + num);
+		String result = stringConverter.convert(2);     // 3
+		System.out.println(result);
+		
+		// num = 2; // 会编译错误，因为num是隐含final修饰
+	}
 }
