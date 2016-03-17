@@ -37,7 +37,7 @@ public class StreamTest {
 		// "aaa2", "aaa1"
 
 		// sort排序
-		
+		// 需要注意的是，排序只创建了一个排列好后的Stream，而不会影响原有的数据源，排序之后原数据stringCollection是不会被修改的
 		// 排序是一个中间操作，返回的是排序好后的Stream。如果你不指定一个自定义的Comparator则会使用默认排序。
 		stringCollection.stream().sorted().filter((s) -> s.startsWith("a")).forEach(System.out::println);
 		// "aaa1", "aaa2"
