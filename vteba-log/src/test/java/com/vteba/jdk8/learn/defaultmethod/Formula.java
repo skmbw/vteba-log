@@ -1,6 +1,6 @@
 package com.vteba.jdk8.learn.defaultmethod;
 
-interface Formula {
+public interface Formula {
     double calculate(int a);
     
     // 默认方法
