@@ -11,7 +11,7 @@ public class FunctionalInterfaceTest {
 		Integer i = converter.convert("10");
 		assert i == 10;
 		
-		// 方法引用实现接口
+		// 方法引用实现接口，这里是静态方法，也可以调用对象方法
 		Converter<String, Long> longConverter = Long::valueOf;
 		System.out.println(longConverter.convert("223"));
 		
