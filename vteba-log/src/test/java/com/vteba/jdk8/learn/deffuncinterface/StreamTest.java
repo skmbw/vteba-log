@@ -27,5 +27,19 @@ public class StreamTest {
 		stringCollection.add("ccc");
 		stringCollection.add("bbb2");
 		stringCollection.add("ddd1");
+
+		// filter过滤
+
+		// 过滤通过一个predicate接口来过滤并只保留符合条件的元素，该操作属于中间操作，
+		// 所以我们可以在过滤后的结果来应用其他Stream操作（比如forEach）。forEach
+		// 需要一个函数来对过滤后的元素依次执行。forEach是一个最终操作，所以我们不能在forEach之后来执行其他Stream操作。
+		stringCollection.stream().filter((s) -> s.startsWith("a")).forEach(System.out::println);
+		// "aaa2", "aaa1"
+
+		// sort排序
+		
+		// 排序是一个中间操作，返回的是排序好后的Stream。如果你不指定一个自定义的Comparator则会使用默认排序。
+		stringCollection.stream().sorted().filter((s) -> s.startsWith("a")).forEach(System.out::println);
+		// "aaa1", "aaa2"
 	}
 }
