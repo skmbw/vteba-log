@@ -13,10 +13,10 @@ import com.vteba.jdk8.learn.functionalinterface.Person;
  * @date 2016年3月17日 上午10:38:05
  */
 public class SupplierTest {
-	
+
 	@Test
 	public void test() {
 		Supplier<Person> personSupplier = Person::new;
-		personSupplier.get();   // new Person
+		personSupplier.get(); // new Person
 	}
 }
