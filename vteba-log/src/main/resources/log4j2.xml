@@ -27,7 +27,7 @@
 			</Policies>
 		</RollingRandomAccessFile>
 		
-		<RollingRandomAccessFile name="mqAppender" fileName="${LOG_HOME}/${MQ_NAME}"
+		<RollingRandomAccessFile name="RocketMQFileAppender" fileName="${LOG_HOME}/${MQ_NAME}"
 			filePattern="${LOG_HOME}/${MQ_NAME}.%d{yyyy-MM-dd-HH}.log">
 			<PatternLayout
 				pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
@@ -36,7 +36,6 @@
 					modulate="true" />
 			</Policies>
 		</RollingRandomAccessFile>
-		
 	</Appenders>
 	<Loggers>
 		<!-- 第三方 Loggers -->
@@ -81,7 +80,7 @@
 		<Logger name="com.alibaba.dubbo" level="INFO" additivity="true">
 		</Logger>
 		<Logger name="com.vteba.mq.rocketmq" level="DEBUG">
-			<AppenderRef ref="mqAppender" />
+			<AppenderRef ref="RocketMQFileAppender" />
 		</Logger>
 <!-- 		<Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" additivity="true"> -->
 <!-- 		</Logger> -->
