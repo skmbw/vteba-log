@@ -85,7 +85,7 @@
         <url-pattern>*.swf</url-pattern> 
     </servlet-mapping>
     
-    	<servlet>
+    <servlet>
 		<servlet-name>druidStatView</servlet-name>
 		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
 	</servlet>
