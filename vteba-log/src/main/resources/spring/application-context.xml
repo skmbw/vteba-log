@@ -266,7 +266,7 @@
 		<property name="kryoer" ref="kryoer" />
 		<property name="redisService" ref="redisService" />
 		<property name="databaseCacheEnable" value="true" />
-		<property name="successCacheEnable" value="true" />
+		<property name="successCacheEnable" value="false" />
 		<property name="dataSource" ref="tiantianDataSource" />
 	</bean>
 
