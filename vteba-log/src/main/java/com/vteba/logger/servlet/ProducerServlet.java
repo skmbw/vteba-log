@@ -29,6 +29,8 @@ public class ProducerServlet extends AutowiredHttpServlet {
 	
 	@Inject
 	private RocketMQMessageProducer rocketMQMessageProducer;
+	@Inject
+	private RocketMQMessageProducer rmqMessageProducer;
 	
 	@Override
 	public void servlet(HttpServletRequest request, HttpServletResponse response) {
@@ -58,6 +60,35 @@ public class ProducerServlet extends AutowiredHttpServlet {
 			model.setName("YinleiUser2.Test2");
 			result = rocketMQMessageProducer.send("YinleiUser2", "Test2", model);
 			LOGGER.info("发送结果5：{}", result);
+			
+			// other
+			
+			model.setId(55);
+			model.setName("rmq_yinlei1");
+			result = rmqMessageProducer.send(model);
+			LOGGER.info("rmq发送结果1：{}", result);
+			
+			model.setId(22);
+			model.setName("rmq_yinlei2");
+			result = rmqMessageProducer.send(model);
+			LOGGER.info("rmq发送结果2：{}", result);
+			
+			model.setId(33);
+			model.setName("rmq_yinlei3");
+			result = rmqMessageProducer.send(model);
+			LOGGER.info("rmq发送结果3：{}", result);
+			
+			model.setAge(19);
+			model.setId(2);
+			model.setName("rmq_yinlei4");
+			result = rmqMessageProducer.send(model);
+			LOGGER.info("rmq发送结果4：{}", result);
+			
+			model.setId(3);
+			model.setAge(20);
+			model.setName("rmq_yinlei5");
+			result = rmqMessageProducer.send(model);
+			LOGGER.info("rmq发送结果5：{}", result);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

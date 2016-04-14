@@ -270,6 +270,18 @@
 		<property name="dataSource" ref="tiantianDataSource" />
 	</bean>
 
+	<bean id="rmqMessageProducer" class="com.vteba.mq.rocketmq.producer.RocketMQMessageProducer"  init-method="init" destroy-method="destroy">
+		<property name="namesrvAddr" value="localhost:9876;localhost:9875" />
+		<property name="producerGroup" value="RMQGroup" />
+		<property name="topic" value="RMQTopic" />
+		<property name="tags" value="RMQTags" />
+		<property name="kryoer" ref="kryoer" />
+		<property name="redisService" ref="redisService" />
+		<property name="databaseCacheEnable" value="true" />
+		<property name="successCacheEnable" value="false" />
+		<property name="dataSource" ref="tiantianDataSource" />
+	</bean>
+
 	<bean id="idsGenerator" class="com.vteba.utils.id.IdsGenerator">
 		<property name="length" value="7" />
 	</bean>
