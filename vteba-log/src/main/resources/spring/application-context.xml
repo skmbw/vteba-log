@@ -257,16 +257,23 @@
 <!-- 		<property name="initTopic" value="false" /> -->
 <!-- 	</bean> -->
 	
-	<!-- RocketMQ生产者，建议使用一个应用配置一个 -->
+	<!-- RocketMQ生产者，建议一个应用配置一个 -->
 	<bean id="rocketMQMessageProducer" class="com.vteba.mq.rocketmq.producer.RocketMQMessageProducer"  init-method="init" destroy-method="destroy">
+		<!-- RocketMQ名服务地址 -->
 		<property name="namesrvAddr" value="localhost:9876;localhost:9875" />
+		<!-- 生产者组，发送相同的消息的生产者，这个属性要相同。同时建议和处理该消息的消费者的消费者组相同 -->
 		<property name="producerGroup" value="userGroup" />
+		<!-- 该生产者的默认topic，另外可以通过方法参数传进去 -->
 		<property name="topic" value="YinleiUser" />
+		<!-- 该生产者的默认Tags，另外方法也可以传进去 -->
 		<property name="tags" value="Test" />
+		<!-- kryo序列化特性，需要这个 -->
 		<property name="kryoer" ref="kryoer" />
+		<!-- redis缓存特性，默认开启，可以通过redisCacheEnable=false关闭-->
 		<property name="redisService" ref="redisService" />
+		<!-- 是否持久化到数据库，默认关闭 -->
 		<property name="databaseCacheEnable" value="true" />
-		<property name="successCacheEnable" value="false" />
+		<!-- 如果databaseCacheEnable=true，需要这个属性 -->
 		<property name="dataSource" ref="tiantianDataSource" />
 	</bean>
 
