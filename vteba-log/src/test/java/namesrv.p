@@ -1,0 +1,12 @@
+rocketmqHome=D:\\alibaba-rocketmq-2\\
+kvConfigPath=C:\\Users\\Administrator\\namesrv2\\kvConfig.json
+listenPort=9876
+serverWorkerThreads=8
+serverCallbackExecutorThreads=0
+serverSelectorThreads=3
+serverOnewaySemaphoreValue=256
+serverAsyncSemaphoreValue=64
+serverChannelMaxIdleTimeSeconds=120
+serverSocketSndBufSize=2048
+serverSocketRcvBufSize=1024
+serverPooledByteBufAllocatorEnable=false
